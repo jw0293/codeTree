@@ -12,7 +12,7 @@ void input(){
     for(int i=0;i<N;i++){
         int start, end, cnt;
         cin >> start >> end >> cnt;
-        for(int j=start;j<=end;j++){
+        for(int j=start;j<end;j++){
             computer[j] += cnt;
         }
     }
