@@ -1,18 +1,18 @@
 #include <iostream>
 #include <algorithm>
-#define MAX_TIME 100
+#define MAX_TIME 1000
 
 using namespace std;
 
 int N;
-int computer[100 + 1];
+int computer[1000 + 1];
 
 void input(){
     cin >> N;
     for(int i=0;i<N;i++){
         int start, end, cnt;
         cin >> start >> end >> cnt;
-        for(int j=start;j<end;j++){
+        for(int j=start;j<=end;j++){
             computer[j] += cnt;
         }
     }
