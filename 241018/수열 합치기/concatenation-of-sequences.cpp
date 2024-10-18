@@ -7,10 +7,14 @@ using namespace std;
 int N, M;
 vector<int> v1, v2;
 
-void input(){
-    cin >> N >> M;
+void initVector(){
     v1 = vector<int>(N, 0);
     v2 = vector<int>(M, 0);
+}
+
+void input(){
+    cin >> N >> M;
+    initVector();
     for(int i=0;i<N;i++) {
         cin >> v1[i];
     }
