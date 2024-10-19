@@ -3,7 +3,7 @@
 using namespace std;
 
 int n, p;
-bool visited[100000 + 1];
+int visited[100000 + 1];
 
 void input(){
     cin >> n >> p;
@@ -15,10 +15,10 @@ int solution(){
     while(1){
         next = next * n % p;
         if(visited[next]) break;
-        visited[next] = true;
+        visited[next] = size;
         size++;
     }
-    return size;
+    return size - visited[next];
 }
 
 int main() {
