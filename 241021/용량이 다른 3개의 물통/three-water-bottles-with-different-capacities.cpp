@@ -20,6 +20,7 @@ void output(){
 }
 
 void moveWater(int from, int to){
+    if(infos[from].second == infos[from].first && infos[to].second == infos[to].first) return;
     if(infos[from].second + infos[to].second <= infos[to].first) {
         infos[to].second += infos[from].second;
         infos[from].second = 0;
