@@ -20,19 +20,23 @@ void output(){
 }
 
 void moveWater(int from, int to){
+    // 모두 꽉 차서 이동이 불가능한 경우
     if(infos[from].second == infos[from].first && infos[to].second == infos[to].first) return;
+    // 전부 부을 수 있는 경우
     if(infos[from].second + infos[to].second <= infos[to].first) {
         infos[to].second += infos[from].second;
         infos[from].second = 0;
-    } else{
-        infos[from].second -= infos[to].first;
+    } 
+    // 부분 부을 수 있는 경우
+    else{
+        infos[from].second = infos[from].second - (infos[to].first - infos[to].second);
         infos[to].second = infos[to].first;
     }
 }
 
 void rotationWaterBowl(){
     int MAX_SIZE = 100;
-    for(int i=0;i<MAX_SIZE;i++) {
+    for(int i=0 ;i<MAX_SIZE;i++) {
         moveWater(i % 3, (i+1) % 3);
     }
 }
