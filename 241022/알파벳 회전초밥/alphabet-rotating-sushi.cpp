@@ -14,20 +14,19 @@ void initPosition(){
     }
 }
 
+void savePoint(int &cnt, int &prev, char ch){
+    cnt++;
+    prev = chk[ch - 'a'];
+}
+
 int findRepeatStr(){
     int prev = -1, cnt = 0;
     for(auto ch : pos){
-        if(prev == -1) {
-            cnt++;
-            prev = chk[ch - 'a'];
+        if(prev == -1 || chk[ch - 'a'] <= prev) {
+            savePoint(cnt, prev, ch);
             continue;
         }
-
-        if(prev < chk[ch - 'a']) prev = chk[ch-'a'];
-        else {
-            cnt++;
-            prev = chk[ch - 'a'];
-        }
+        prev = chk[ch-'a'];
     }
     return cnt;
 }
