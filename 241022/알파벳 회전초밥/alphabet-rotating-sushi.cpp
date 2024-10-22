@@ -15,11 +15,21 @@ void initPosition(){
 }
 
 int findRepeatStr(){
-    int ret = 0;
-    for(auto c : pos){
-        ret = max(ret, chk[c-'a']);
+    int prev = -1, cnt = 0;
+    for(auto ch : pos){
+        if(prev == -1) {
+            cnt++;
+            prev = chk[ch - 'a'];
+            continue;
+        }
+
+        if(prev < chk[ch - 'a']) prev = chk[ch-'a'];
+        else {
+            cnt++;
+            prev = chk[ch - 'a'];
+        }
     }
-    return ret + 1;
+    return cnt;
 }
 
 int solution(){
@@ -30,6 +40,6 @@ int solution(){
 int main() {
     input();
     cout << solution() << '\n';
-    
+
     return 0;
 }
