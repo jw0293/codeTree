@@ -12,10 +12,16 @@ int addPos(int n){
     return (n / 10) + (n % 10);
 }
 
+string getLastNumber(int x){
+    return to_string(x % 10);
+}
+
+string makeNewNumber(int n, int val){
+    return getLastNumber(n) + getLastNumber(val);
+}
+
 int getRst(int n, int val){
-    string temp = "";
-    temp += to_string(n % 10) + to_string(val % 10);
-    return stoi(temp);
+    return stoi(makeNewNumber(n, val));
 }
 
 int solution(){
